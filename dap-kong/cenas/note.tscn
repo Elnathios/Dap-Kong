@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cqr8dynmr8jgr"]
+
+[ext_resource type="Script" uid="uid://dttgqd57pmoft" path="res://scripts/note.gd" id="1_uy5jp"]
+[ext_resource type="Texture2D" uid="uid://cetxo23ytvyy7" path="res://icon.svg" id="2_k7t7g"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_nrmv1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_k7t7g")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Note" type="Node2D"]
+script = ExtResource("1_uy5jp")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_nrmv1")

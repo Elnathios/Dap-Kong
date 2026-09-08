@@ -1,0 +1,17 @@
+[gd_scene load_steps=5 format=3 uid="uid://xayrl56wfsmq"]
+
+[ext_resource type="Script" uid="uid://tvrtbf6gvohx" path="res://cenas/audio_stream_player.gd" id="1_1ikvx"]
+[ext_resource type="AudioStream" uid="uid://xvgbyuiaddmu" path="res://sounds/Dark_Disco.ogg" id="1_ulb1h"]
+[ext_resource type="Script" uid="uid://blagwst332gey" path="res://scripts/RhythmChart.gd" id="3_ovvm4"]
+[ext_resource type="PackedScene" uid="uid://cqr8dynmr8jgr" path="res://cenas/note.tscn" id="4_ovvm4"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Conductor" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_ulb1h")
+autoplay = true
+script = ExtResource("1_1ikvx")
+
+[node name="RhythmChart" type="Node2D" parent="."]
+script = ExtResource("3_ovvm4")
+note_scene = ExtResource("4_ovvm4")
