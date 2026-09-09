@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://ddvgf7nkeb021"]
+
+[ext_resource type="Script" uid="uid://cpryug7bax801" path="res://scripts/test_mic_scene.gd" id="1_g1wmo"]
+
+[node name="Teste_mic_claude" type="Control" unique_id=234024536]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g1wmo")
