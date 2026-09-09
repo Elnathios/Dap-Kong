@@ -8,14 +8,8 @@ var song_position_in_beats = 0
 var sec_per_beat = 0.0
 var last_reported_beat = -1
 
-var last_energy = 0.0
-var onset_threshold = 0.06
-var last_onset_time = -1.0
-var onset_cooldown = 0.15
-
-var high_frequency_boost = 5.0
-
-var spectrum_instance
+var detected_events = []
+var next_event_index = 0
 
 signal beat_changed(beat)
 
@@ -23,92 +17,82 @@ signal beat_changed(beat)
 func _ready():
 	sec_per_beat = 60.0 / bpm
 
-	var bus_index = AudioServer.get_bus_index("Master")
-	spectrum_instance = AudioServer.get_bus_effect_instance(
-		bus_index,
-		0
-	)
+	load_chart()
+
+	play()
 
 
 func _physics_process(_delta):
 	if playing:
+		var current_playback_position = get_playback_position()
+
 		song_position = (
-			get_playback_position()
+			current_playback_position
 			+ AudioServer.get_time_since_last_mix()
 			- AudioServer.get_output_latency()
 		)
 
-		song_position_in_beats = int(floor(song_position / sec_per_beat))
+		spawn_upcoming_notes()
+
+		song_position_in_beats = int(
+			floor(song_position / sec_per_beat)
+		)
 
 		if song_position_in_beats > last_reported_beat:
 			last_reported_beat = song_position_in_beats
 			beat_changed.emit(song_position_in_beats)
 
-		var bass_energy = get_frequency_energy()
-		var high_energy = get_high_frequency_energy()
 
-		var total_energy = bass_energy + high_energy
-		var energy_change = total_energy - last_energy
-
-		if energy_change > onset_threshold:
-			if song_position - last_onset_time > onset_cooldown:
-
-				var note_type = ""
-
-				var adjusted_high_energy = high_energy * high_frequency_boost
-
-				if bass_energy > adjusted_high_energy:
-					note_type = "fist"
-				else:
-					note_type = "highfive"
-
-				spawn_note(note_type)
-
-				print(
-					"ATAQUE DETECTADO! | Tipo: ",
-					note_type,
-					" | Graves: ",
-					bass_energy,
-					" | Agudos: ",
-					high_energy,
-					" | Agudos ajustados: ",
-					adjusted_high_energy
-				)
-
-				last_onset_time = song_position
-
-		last_energy = total_energy
-
-
-func spawn_note(note_type):
-	var note = note_scene.instantiate()
-
-	note.note_type = note_type
-	note.target_time = song_position + 2.0
-	note.approach_time = 2.0
-
-	get_parent().add_child(note)
-
-
-func get_frequency_energy():
-	if spectrum_instance == null:
-		return 0.0
-
-	var magnitude = spectrum_instance.get_magnitude_for_frequency_range(
-		20.0,
-		200.0
+func load_chart():
+	var file = FileAccess.open(
+		"res://charts/song_chart.json",
+		FileAccess.READ
 	)
 
-	return magnitude.length()
+	if file == null:
+		print("ERRO: não foi possível encontrar o chart.")
+		return
+
+	var json_text = file.get_as_text()
+	file.close()
+
+	var loaded_events = JSON.parse_string(json_text)
+
+	if loaded_events is Array:
+		detected_events = loaded_events
+		next_event_index = 0
+
+		print("================================")
+		print("CHART CARREGADO!")
+		print("Eventos carregados: ", detected_events.size())
+		print("================================")
+	else:
+		print("ERRO: o arquivo de chart não contém uma lista válida.")
 
 
-func get_high_frequency_energy():
-	if spectrum_instance == null:
-		return 0.0
+func spawn_upcoming_notes():
+	if next_event_index >= detected_events.size():
+		return
 
-	var magnitude = spectrum_instance.get_magnitude_for_frequency_range(
-		2000.0,
-		8000.0
-	)
+	var event = detected_events[next_event_index]
+	var event_time = event["time"]
 
-	return magnitude.length()
+	var note_approach_time = 2.0
+
+	if song_position >= event_time - note_approach_time:
+		var note = note_scene.instantiate()
+
+		note.note_type = event["type"]
+		note.target_time = event_time
+
+		# Se a nota acontece antes dos 2 segundos,
+		# ela nasce no início da música e usa
+		# o tempo restante até o ataque.
+		if event_time < note_approach_time:
+			note.approach_time = event_time
+		else:
+			note.approach_time = note_approach_time
+
+		get_parent().add_child(note)
+
+		next_event_index += 1

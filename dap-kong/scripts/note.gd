@@ -12,17 +12,21 @@ var target_position := Vector2.ZERO
 
 
 func _ready():
-	start_position = Vector2(100, 300)
-	target_position = Vector2(700, 300)
+	
+
+	start_position = Vector2(100, 400)
+	target_position = Vector2(900, 400)
 
 	position = start_position
 
 
 func _process(_delta):
 	var current_time = audio_conductor.song_position
-	var time_until_hit = target_time - current_time
+	
+	# Quanto tempo já passou desde que a nota nasceu
+	var elapsed_time = current_time - (target_time - approach_time)
 
-	var progress = 1.0 - (time_until_hit / approach_time)
+	var progress = elapsed_time / approach_time
 
 	progress = clamp(progress, 0.0, 1.0)
 
