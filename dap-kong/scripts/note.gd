@@ -9,6 +9,7 @@ var start_position := Vector2.ZERO
 var target_position := Vector2.ZERO
 
 @onready var audio_conductor = get_parent().get_node("Conductor")
+@onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 
 
 func _ready():
@@ -18,6 +19,14 @@ func _ready():
 	target_position = Vector2(900, 400)
 
 	position = start_position
+	if note_type == "fist":
+		$AnimatedSprite2D.flip_h
+		
+	elif note_type == "backhand":
+		$AnimatedSprite2D.rotate(180)
+
+	elif note_type == "highfive":
+		$AnimatedSprite2D.rotate(90)
 
 
 func _process(_delta):

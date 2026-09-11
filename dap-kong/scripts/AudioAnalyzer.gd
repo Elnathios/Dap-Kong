@@ -49,24 +49,37 @@ func _physics_process(_delta):
 				high_energy * high_frequency_boost
 			)
 
-			if bass_energy > adjusted_high_energy:
-				note_type = "fist"
-			else:
-				note_type = "highfive"
-
-			detected_events.append({
-				"time": song_position,
-				"type": note_type
-			})
-
-			print(
-				"ATAQUE DETECTADO! | Tipo: ",
-				note_type,
-				" | Tempo: ",
-				song_position
+			var total_frequency_energy = (
+				bass_energy + adjusted_high_energy
 			)
 
-			last_onset_time = song_position
+			if total_frequency_energy > 0.0:
+				var bass_ratio = (
+					bass_energy / total_frequency_energy
+				)
+
+				if bass_ratio > 0.70:
+					note_type = "fist"
+
+				elif bass_ratio < 0.50:
+					note_type = "backhand"
+
+				else:
+					note_type = "highfive"
+
+				detected_events.append({
+					"time": song_position,
+					"type": note_type
+				})
+
+				print(
+					"ATAQUE DETECTADO! | Tipo: ",
+					note_type,
+					" | Tempo: ",
+					song_position
+				)
+
+				last_onset_time = song_position
 
 	last_energy = total_energy
 
