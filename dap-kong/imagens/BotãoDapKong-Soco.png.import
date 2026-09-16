@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cr2alii0ir40g"
-path="res://.godot/imported/pixel-art-play-button-free-png.png-9a645615fea96212ee98bf86fdd3d76f.ctex"
+uid="uid://ba03kn2wexr7k"
+path="res://.godot/imported/BotãoDapKong-Soco.png-2e993ffbd56a059df9b15f9753968544.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagens/pixel-art-play-button-free-png.png"
-dest_files=["res://.godot/imported/pixel-art-play-button-free-png.png-9a645615fea96212ee98bf86fdd3d76f.ctex"]
+source_file="res://imagens/BotãoDapKong-Soco.png"
+dest_files=["res://.godot/imported/BotãoDapKong-Soco.png-2e993ffbd56a059df9b15f9753968544.ctex"]
 
 [params]
 

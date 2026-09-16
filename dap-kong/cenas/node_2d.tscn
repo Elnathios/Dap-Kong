@@ -1,13 +1,62 @@
-[gd_scene load_steps=4 format=3 uid="uid://xayrl56wfsmq"]
+[gd_scene load_steps=10 format=3 uid="uid://xayrl56wfsmq"]
 
 [ext_resource type="Script" uid="uid://tvrtbf6gvohx" path="res://cenas/audio_stream_player.gd" id="1_1ikvx"]
+[ext_resource type="Script" uid="uid://bhcbfb3uxy7i" path="res://cenas/node_2d.gd" id="1_410y7"]
 [ext_resource type="AudioStream" uid="uid://xvgbyuiaddmu" path="res://sounds/Dark_Disco.ogg" id="1_ulb1h"]
+[ext_resource type="Texture2D" uid="uid://cu3fbl8dqxktf" path="res://imagens/BotãoDapKong-Vazio.png" id="4_410y7"]
 [ext_resource type="PackedScene" uid="uid://cqr8dynmr8jgr" path="res://cenas/note.tscn" id="4_ovvm4"]
 
+[sub_resource type="SpriteFrames" id="SpriteFrames_6snwf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_410y7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ovvm4"]
+size = Vector2(31.89, 31.89)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_410y7"]
+size = Vector2(7.69757, 32.11)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6snwf"]
+size = Vector2(19.5, 20)
+
 [node name="Node2D" type="Node2D"]
+script = ExtResource("1_410y7")
 
 [node name="Conductor" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("1_ulb1h")
 autoplay = true
 script = ExtResource("1_1ikvx")
 note_scene = ExtResource("4_ovvm4")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(900, 500)
+scale = Vector2(3.2, 3.2)
+sprite_frames = SubResource("SpriteFrames_6snwf")
+
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+
+[node name="AreaMaior" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+position = Vector2(-0.10994, 0.109962)
+shape = SubResource("RectangleShape2D_ovvm4")
+
+[node name="AreaMenor" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+position = Vector2(-0.32988, 0)
+shape = SubResource("RectangleShape2D_410y7")
+debug_color = Color(0.326796, 0.489411, 1, 0.42)
+
+[node name="DestructArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructArea"]
+position = Vector2(1041, 487)
+shape = SubResource("RectangleShape2D_6snwf")
+
+[connection signal="area_shape_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_shape_entered"]
+[connection signal="area_shape_exited" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_shape_exited"]
+[connection signal="area_entered" from="DestructArea" to="." method="_on_destruct_area_area_entered"]
