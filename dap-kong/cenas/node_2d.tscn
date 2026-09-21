@@ -1,10 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://xayrl56wfsmq"]
+[gd_scene load_steps=12 format=3 uid="uid://xayrl56wfsmq"]
 
 [ext_resource type="Script" uid="uid://tvrtbf6gvohx" path="res://cenas/audio_stream_player.gd" id="1_1ikvx"]
 [ext_resource type="Script" uid="uid://bhcbfb3uxy7i" path="res://cenas/node_2d.gd" id="1_410y7"]
 [ext_resource type="AudioStream" uid="uid://xvgbyuiaddmu" path="res://sounds/Dark_Disco.ogg" id="1_ulb1h"]
 [ext_resource type="Texture2D" uid="uid://cu3fbl8dqxktf" path="res://imagens/BotãoDapKong-Vazio.png" id="4_410y7"]
 [ext_resource type="PackedScene" uid="uid://cqr8dynmr8jgr" path="res://cenas/note.tscn" id="4_ovvm4"]
+[ext_resource type="FontFile" uid="uid://cd0e6aljqm7k7" path="res://fonte/Pixels.ttf" id="6_6snwf"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6snwf"]
 animations = [{
@@ -25,6 +26,10 @@ size = Vector2(7.69757, 32.11)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6snwf"]
 size = Vector2(19.5, 20)
+
+[sub_resource type="LabelSettings" id="LabelSettings_lwqk8"]
+font = ExtResource("6_6snwf")
+font_size = 48
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_410y7")
@@ -56,6 +61,13 @@ debug_color = Color(0.326796, 0.489411, 1, 0.42)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DestructArea"]
 position = Vector2(1041, 487)
 shape = SubResource("RectangleShape2D_6snwf")
+
+[node name="Label" type="Label" parent="."]
+offset_left = 947.0
+offset_top = 47.0
+offset_right = 987.0
+offset_bottom = 70.0
+label_settings = SubResource("LabelSettings_lwqk8")
 
 [connection signal="area_shape_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_shape_entered"]
 [connection signal="area_shape_exited" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_shape_exited"]

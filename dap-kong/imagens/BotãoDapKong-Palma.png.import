@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1l5vo3unxqql"
-path="res://.godot/imported/BotãoDapKong-CostasMão.png-9f9fedd530a786d5d5a6756da58de431.ctex"
+uid="uid://c87w3lbt0kkj2"
+path="res://.godot/imported/BotãoDapKong-Palma.png-d1056be08846c314dbe0908d22ecc800.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagens/BotãoDapKong-CostasMão.png"
-dest_files=["res://.godot/imported/BotãoDapKong-CostasMão.png-9f9fedd530a786d5d5a6756da58de431.ctex"]
+source_file="res://imagens/BotãoDapKong-Palma.png"
+dest_files=["res://.godot/imported/BotãoDapKong-Palma.png-d1056be08846c314dbe0908d22ecc800.ctex"]
 
 [params]
 
