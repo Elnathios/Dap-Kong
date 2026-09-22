@@ -1,0 +1,136 @@
+[gd_scene load_steps=14 format=3 uid="uid://bqb314altkoo2"]
+
+[ext_resource type="Texture2D" uid="uid://d3suh45be7gkc" path="res://imagens/MenuDapKong.png" id="1_64url"]
+[ext_resource type="Texture2D" uid="uid://c5yna0krmwgnu" path="res://imagens/Captura de tela 2026-09-21 194642.png" id="1_nbnbt"]
+[ext_resource type="Script" uid="uid://bc4xggmxh3sla" path="res://cenas/menu.gd" id="1_qvcyk"]
+[ext_resource type="FontFile" uid="uid://cd0e6aljqm7k7" path="res://fonte/Pixels.ttf" id="3_hsu4v"]
+[ext_resource type="Theme" uid="uid://474swyu0jl0c" path="res://botao/menu.tres" id="4_mmoso"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nbnbt"]
+atlas = ExtResource("1_64url")
+region = Rect2(0, 0, 250, 350)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hsu4v"]
+atlas = ExtResource("1_64url")
+region = Rect2(250, 0, 250, 350)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_mmoso"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nbnbt")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hsu4v")
+}],
+"loop": true,
+"name": &"new_animation",
+"speed": 5.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_mmoso"]
+font = ExtResource("3_hsu4v")
+font_size = 156
+
+[sub_resource type="LabelSettings" id="LabelSettings_nxpqr"]
+font = ExtResource("3_hsu4v")
+font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_qcnrj"]
+font = ExtResource("3_hsu4v")
+font_size = 120
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_nxpqr"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_qvcyk"]
+font = ExtResource("3_hsu4v")
+font_size = 45
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qvcyk")
+
+[node name="CapturaDeTela2026-09-21194642" type="Sprite2D" parent="."]
+position = Vector2(624, 335)
+scale = Vector2(4.10435, 9.80556)
+texture = ExtResource("1_nbnbt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(576, 328.99)
+scale = Vector2(1.91, 1.87992)
+sprite_frames = SubResource("SpriteFrames_mmoso")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 398.0
+offset_top = -5.0
+offset_right = 756.0
+offset_bottom = 134.0
+text = "Dap Kong"
+label_settings = SubResource("LabelSettings_mmoso")
+horizontal_alignment = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 145.0
+offset_right = 296.0
+offset_bottom = 480.0
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "MODO"
+label_settings = SubResource("LabelSettings_nxpqr")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_qcnrj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nxpqr")
+
+[node name="HSeparator3" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nxpqr")
+
+[node name="ButtonEasy" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_mmoso")
+text = "Reggae Kong"
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nxpqr")
+
+[node name="ButtonHard" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("4_mmoso")
+theme_override_fonts/font = ExtResource("3_hsu4v")
+text = "Gorila Rock"
+
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_nxpqr")
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 0
+offset_left = 534.0
+offset_top = 169.0
+offset_right = 574.0
+offset_bottom = 192.0
+text = "Press Enter"
+label_settings = SubResource("LabelSettings_qvcyk")
