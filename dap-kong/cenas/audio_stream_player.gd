@@ -17,6 +17,7 @@ var sec_per_beat = 0.0
 # Guarda a última batida emitida para evitar sinalizar o mesmo beat múltiplas vezes
 var last_reported_beat = -1
 
+var active_notes: Array[Node2D] = []
 # Lista que armazenará os eventos do chart carregados do JSON
 var detected_events = []
 # Índice que aponta para o próximo evento a ser spawnado
@@ -140,10 +141,15 @@ func spawn_upcoming_notes():
 		# Adiciona a nota na cena (no nó pai)
 		get_parent().add_child(note)
 
-		# Avança para o próximo evento do chart
-		next_event_index += 1
+		active_notes.append(note)
 
+		note.judged.connect(_on_note_judged)
+
+		next_event_index += 1
 
 func _on_finished() -> void:
 		Global.fim = true
 		print(Global.fim)
+
+func _on_note_judged(note: Node2D) -> void:
+	active_notes.erase(note)

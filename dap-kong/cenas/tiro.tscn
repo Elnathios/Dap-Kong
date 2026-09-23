@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://dksrbgsrn0y24"]
+
+[ext_resource type="Script" uid="uid://b8sg8wg2wttun" path="res://area_2d.gd" id="1_7m4qf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r2yu0"]
+size = Vector2(44, 20)
+
+[node name="Tiro" type="Node2D"]
+
+[node name="Area2D" type="Area2D" parent="."]
+script = ExtResource("1_7m4qf")
+speed = -1000.0
+initial_position = Vector2(577, 222)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(12, 0)
+shape = SubResource("RectangleShape2D_r2yu0")
+debug_color = Color(0.611967, 0.458135, 0.7443, 0.42)
