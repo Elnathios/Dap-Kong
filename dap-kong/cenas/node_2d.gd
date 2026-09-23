@@ -5,6 +5,10 @@ extends Node2D
 @onready var v_box_container: VBoxContainer = $VBoxContainer
 @onready var button: Button = $VBoxContainer/Button
 @onready var conductor = $Conductor
+@onready var animated_sprite_2d_2: AnimatedSprite2D = $AnimatedSprite2D2
+@onready var perfeito: AudioStreamPlayer2D = $perfeito
+@onready var legal: AudioStreamPlayer2D = $legal
+@onready var errou: AudioStreamPlayer2D = $errou
 
 const TIO = preload("res://cenas/tiro.tscn")
 
@@ -94,7 +98,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 				# Julga imediatamente a primeira nota como erro
 				note.judge("erro")
-
+				$AnimatedSprite2D2.play("falha")
+				errou.play()
+				
 				return
 
 			# ------------------------------------------------
@@ -130,18 +136,23 @@ func _try_hit(expected_type: String) -> void:
 
 		note.judge("erro")
 
+
+
 	elif notes_in_area_menor.has(target_note):
 
 		# Acerto perfeito
 		note.judge("excelente")
 		Global.pontos += 200
+		$AnimatedSprite2D2.play("acerto")
+		perfeito.play()
 
 	else:
 
 		# Acerto normal
 		note.judge("acerto")
 		Global.pontos += 100
-
+		$AnimatedSprite2D2.play("ok")
+		legal.play()
 
 # ============================================================
 # TIRO QUANDO O JOGADOR APERTA O BOTÃO ERRADO
@@ -158,6 +169,8 @@ func _on_destruct_area_area_entered(area: Area2D) -> void:
 	var note = area.get_parent().get_parent()
 
 	note.judge("miss")
+	$AnimatedSprite2D2.play("falha")
+
 
 
 # ============================================================
