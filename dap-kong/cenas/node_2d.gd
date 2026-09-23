@@ -98,8 +98,8 @@ func _unhandled_input(event: InputEvent) -> void:
 
 				# Julga imediatamente a primeira nota como erro
 				note.judge("erro")
-				$AnimatedSprite2D2.play("falha")
 				errou.play()
+				$AnimatedSprite2D2.play("falha")
 				
 				return
 
@@ -170,6 +170,7 @@ func _on_destruct_area_area_entered(area: Area2D) -> void:
 
 	note.judge("miss")
 	$AnimatedSprite2D2.play("falha")
+	errou.play()
 
 
 

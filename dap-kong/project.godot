@@ -28,6 +28,12 @@ driver/enable_input=true
 
 Global="*res://scripts/global.gd"
 
+[display]
+
+window/size/mode=2
+window/size/initial_position_type=0
+window/stretch/mode="canvas_items"
+
 [global_group]
 
 notes=""
