@@ -1,0 +1,262 @@
+[
+	{
+		"time": 6.01687097549438,
+		"type": "highfive"
+	},
+	{
+		"time": 7.51165533065796,
+		"type": "highfive"
+	},
+	{
+		"time": 9.04707527160645,
+		"type": "backhand"
+	},
+	{
+		"time": 10.5505666732788,
+		"type": "highfive"
+	},
+	{
+		"time": 11.2442626953125,
+		"type": "fist"
+	},
+	{
+		"time": 12.0337419509888,
+		"type": "backhand"
+	},
+	{
+		"time": 13.5256233215332,
+		"type": "highfive"
+	},
+	{
+		"time": 14.2744674682617,
+		"type": "fist"
+	},
+	{
+		"time": 15.0204086303711,
+		"type": "highfive"
+	},
+	{
+		"time": 16.5239009857178,
+		"type": "highfive"
+	},
+	{
+		"time": 18.0506114959717,
+		"type": "highfive"
+	},
+	{
+		"time": 19.5424938201904,
+		"type": "highfive"
+	},
+	{
+		"time": 21.0895233154297,
+		"type": "backhand"
+	},
+	{
+		"time": 22.540771484375,
+		"type": "highfive"
+	},
+	{
+		"time": 24.0326538085938,
+		"type": "backhand"
+	},
+	{
+		"time": 24.6828117370605,
+		"type": "fist"
+	},
+	{
+		"time": 25.527437210083,
+		"type": "highfive"
+	},
+	{
+		"time": 26.2733783721924,
+		"type": "fist"
+	},
+	{
+		"time": 27.0512466430664,
+		"type": "backhand"
+	},
+	{
+		"time": 28.5460319519043,
+		"type": "highfive"
+	},
+	{
+		"time": 29.2165088653564,
+		"type": "fist"
+	},
+	{
+		"time": 30.037914276123,
+		"type": "backhand"
+	},
+	{
+		"time": 31.5326976776123,
+		"type": "highfive"
+	},
+	{
+		"time": 33.0797271728516,
+		"type": "backhand"
+	},
+	{
+		"time": 34.5193634033203,
+		"type": "highfive"
+	},
+	{
+		"time": 36.0228576660156,
+		"type": "backhand"
+	},
+	{
+		"time": 37.5466651916504,
+		"type": "fist"
+	},
+	{
+		"time": 39.0414505004883,
+		"type": "backhand"
+	},
+	{
+		"time": 40.533332824707,
+		"type": "highfive"
+	},
+	{
+		"time": 41.1951026916504,
+		"type": "fist"
+	},
+	{
+		"time": 42.0281181335449,
+		"type": "highfive"
+	},
+	{
+		"time": 43.5200004577637,
+		"type": "backhand"
+	},
+	{
+		"time": 45.0263938903809,
+		"type": "fist"
+	},
+	{
+		"time": 46.5502052307129,
+		"type": "fist"
+	},
+	{
+		"time": 47.211971282959,
+		"type": "fist"
+	},
+	{
+		"time": 48.0449905395508,
+		"type": "highfive"
+	},
+	{
+		"time": 48.7154655456543,
+		"type": "fist"
+	},
+	{
+		"time": 49.5368690490723,
+		"type": "backhand"
+	},
+	{
+		"time": 51.0316543579102,
+		"type": "backhand"
+	},
+	{
+		"time": 52.5235366821289,
+		"type": "backhand"
+	},
+	{
+		"time": 53.1969146728516,
+		"type": "fist"
+	},
+	{
+		"time": 54.0270309448242,
+		"type": "highfive"
+	},
+	{
+		"time": 55.5102043151855,
+		"type": "highfive"
+	},
+	{
+		"time": 57.0456237792969,
+		"type": "backhand"
+	},
+	{
+		"time": 58.5520172119141,
+		"type": "highfive"
+	},
+	{
+		"time": 59.2428131103516,
+		"type": "fist"
+	},
+	{
+		"time": 60.0438995361328,
+		"type": "backhand"
+	},
+	{
+		"time": 61.5270767211914,
+		"type": "backhand"
+	},
+	{
+		"time": 62.2730140686035,
+		"type": "fist"
+	},
+	{
+		"time": 63.0624961853027,
+		"type": "backhand"
+	},
+	{
+		"time": 64.5253524780273,
+		"type": "highfive"
+	},
+	{
+		"time": 65.1755065917969,
+		"type": "fist"
+	},
+	{
+		"time": 66.0491638183594,
+		"type": "backhand"
+	},
+	{
+		"time": 67.5439453125,
+		"type": "fist"
+	},
+	{
+		"time": 69.0474395751953,
+		"type": "backhand"
+	},
+	{
+		"time": 69.6975936889648,
+		"type": "fist"
+	},
+	{
+		"time": 70.5306091308594,
+		"type": "highfive"
+	},
+	{
+		"time": 72.0224914550781,
+		"type": "backhand"
+	},
+	{
+		"time": 72.6958694458008,
+		"type": "fist"
+	},
+	{
+		"time": 73.5259857177734,
+		"type": "highfive"
+	},
+	{
+		"time": 74.2719268798828,
+		"type": "fist"
+	},
+	{
+		"time": 75.061408996582,
+		"type": "backhand"
+	},
+	{
+		"time": 76.5445785522461,
+		"type": "fist"
+	},
+	{
+		"time": 77.2063522338867,
+		"type": "fist"
+	},
+	{
+		"time": 78.0480728149414,
+		"type": "fist"
+	}
+]

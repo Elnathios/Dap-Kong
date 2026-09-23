@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://bqb314altkoo2"]
+[gd_scene load_steps=15 format=3 uid="uid://bqb314altkoo2"]
 
 [ext_resource type="Texture2D" uid="uid://d3suh45be7gkc" path="res://imagens/MenuDapKong.png" id="1_64url"]
 [ext_resource type="Texture2D" uid="uid://c5yna0krmwgnu" path="res://imagens/Captura de tela 2026-09-21 194642.png" id="1_nbnbt"]
@@ -50,6 +50,10 @@ font_size = 120
 [sub_resource type="LabelSettings" id="LabelSettings_qvcyk"]
 font = ExtResource("3_hsu4v")
 font_size = 45
+
+[sub_resource type="LabelSettings" id="LabelSettings_qygre"]
+font = ExtResource("3_hsu4v")
+font_size = 38
 
 [node name="Menu" type="Control"]
 layout_mode = 3
@@ -134,3 +138,17 @@ offset_right = 574.0
 offset_bottom = 192.0
 text = "Press Enter"
 label_settings = SubResource("LabelSettings_qvcyk")
+
+[node name="Label3" type="Label" parent="."]
+layout_mode = 0
+offset_left = 801.0
+offset_top = 479.0
+offset_right = 1150.0
+offset_bottom = 646.0
+text = "Matheus Morini: controles
+Gabriel Benini: Codigo
+Milton Brunor: Arte
+Roberto Borio: Musica
+Andre: Sound Design"
+label_settings = SubResource("LabelSettings_qygre")
+horizontal_alignment = 2

@@ -1,11 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://xayrl56wfsmq"]
+[gd_scene load_steps=17 format=3 uid="uid://xayrl56wfsmq"]
 
 [ext_resource type="Script" uid="uid://tvrtbf6gvohx" path="res://cenas/audio_stream_player.gd" id="1_1ikvx"]
 [ext_resource type="Script" uid="uid://bhcbfb3uxy7i" path="res://cenas/node_2d.gd" id="1_410y7"]
-[ext_resource type="AudioStream" uid="uid://xvgbyuiaddmu" path="res://sounds/Dark_Disco.ogg" id="1_ulb1h"]
+[ext_resource type="Texture2D" uid="uid://r8ey4ttywm0m" path="res://imagens/MapaDapKong-chão.png" id="2_fnnok"]
 [ext_resource type="Texture2D" uid="uid://cu3fbl8dqxktf" path="res://imagens/BotãoDapKong-Vazio.png" id="4_410y7"]
+[ext_resource type="AudioStream" uid="uid://b4cspkpyxghum" path="res://sounds/Reggae_Gorilla.ogg" id="4_dyv38"]
 [ext_resource type="PackedScene" uid="uid://cqr8dynmr8jgr" path="res://cenas/note.tscn" id="4_ovvm4"]
+[ext_resource type="AudioStream" uid="uid://q3f51whmtthw" path="res://sounds/rock_Gorilla.ogg" id="5_fnnok"]
 [ext_resource type="FontFile" uid="uid://cd0e6aljqm7k7" path="res://fonte/Pixels.ttf" id="6_6snwf"]
+[ext_resource type="Theme" uid="uid://474swyu0jl0c" path="res://botao/menu.tres" id="10_uhp86"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6snwf"]
 animations = [{
@@ -31,17 +34,31 @@ size = Vector2(19.5, 20)
 font = ExtResource("6_6snwf")
 font_size = 48
 
+[sub_resource type="LabelSettings" id="LabelSettings_fnnok"]
+font = ExtResource("6_6snwf")
+font_size = 150
+font_color = Color(0.212161, 0.782646, 0.160402, 1)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_uhp86"]
+
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_410y7")
 
 [node name="Conductor" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("1_ulb1h")
 autoplay = true
 script = ExtResource("1_1ikvx")
 note_scene = ExtResource("4_ovvm4")
+musicas = Array[AudioStream]([ExtResource("4_dyv38"), ExtResource("5_fnnok")])
+
+[node name="MapaDapKong-chão" type="Sprite2D" parent="."]
+visibility_layer = 2
+position = Vector2(575, 360.5)
+scale = Vector2(4.49219, 4.49219)
+texture = ExtResource("2_fnnok")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(900, 500)
+z_index = 1
+position = Vector2(884, 510)
 scale = Vector2(3.2, 3.2)
 sprite_frames = SubResource("SpriteFrames_6snwf")
 
@@ -59,7 +76,7 @@ debug_color = Color(0.326796, 0.489411, 1, 0.42)
 [node name="DestructArea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DestructArea"]
-position = Vector2(1041, 487)
+position = Vector2(952, 499)
 shape = SubResource("RectangleShape2D_6snwf")
 
 [node name="Label" type="Label" parent="."]
@@ -69,6 +86,34 @@ offset_right = 987.0
 offset_bottom = 70.0
 label_settings = SubResource("LabelSettings_lwqk8")
 
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 479.0
+offset_top = 100.0
+offset_right = 667.0
+offset_bottom = 282.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_fnnok")
+horizontal_alignment = 1
+
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_uhp86")
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("10_uhp86")
+text = "menu"
+
+[connection signal="finished" from="Conductor" to="Conductor" method="_on_finished"]
 [connection signal="area_shape_entered" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_shape_entered"]
 [connection signal="area_shape_exited" from="AnimatedSprite2D/Area2D" to="." method="_on_area_2d_area_shape_exited"]
 [connection signal="area_entered" from="DestructArea" to="." method="_on_destruct_area_area_entered"]
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

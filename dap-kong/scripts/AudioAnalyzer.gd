@@ -5,7 +5,7 @@ extends Node
 var last_energy = 0.0
 var onset_threshold = 0.06
 var last_onset_time = -1.0
-var onset_cooldown = 0.70
+var onset_cooldown = 0.65
 
 var high_frequency_boost = 5.0
 
@@ -61,7 +61,7 @@ func _physics_process(_delta):
 				if bass_ratio > 0.70:
 					note_type = "fist"
 
-				elif bass_ratio < 0.50:
+				elif bass_ratio < 0.60:
 					note_type = "backhand"
 
 				else:

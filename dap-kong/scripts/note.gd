@@ -24,8 +24,8 @@ func _ready():
 	add_to_group("notes")
 
 	# Define a posição inicial (onde a nota nasce) e a posição final (hitbox/alvo)
-	start_position = Vector2(100, 500)
-	target_position = Vector2(1000, 500)
+	start_position = Vector2(100, 510)
+	target_position = Vector2(900, 510)
 
 	# Posiciona a nota no ponto inicial ao ser carregada
 	position = start_position

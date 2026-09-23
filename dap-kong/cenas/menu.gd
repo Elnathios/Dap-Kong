@@ -11,6 +11,11 @@ func _ready() -> void:
 	
 	_atualizar_label()
 
+func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("select"):
+		get_tree().change_scene_to_file("res://cenas/node_2d.tscn")
+		print(Global.modo)
+
 
 func _on_button_easy_pressed() -> void:
 	Global.modo = false

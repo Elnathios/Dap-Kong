@@ -5,6 +5,9 @@ extends AudioStreamPlayer
 # Cena da nota que será instanciada na tela
 @export var note_scene: PackedScene
 
+
+@export var musicas: Array[AudioStream] = []
+@export var musica_atual: int = 0
 # Posição atual da música em segundos
 var song_position = 0.0
 # Posição atual da música convertida para batidas (beats)
@@ -24,6 +27,9 @@ signal beat_changed(beat)
 
 
 func _ready():
+
+	selecionar_musica(musica_atual)
+
 	# Calcula quantos segundos dura cada batida
 	sec_per_beat = 60.0 / bpm
 
@@ -32,7 +38,20 @@ func _ready():
 
 	# Inicia a reprodução do áudio
 	play()
+	
 
+
+func selecionar_musica(indice: int):
+	if indice < 0 or indice >= musicas.size():
+		print("ERRO: índice de música inválido!")
+		return
+	else: 
+		if Global.modo == true:
+			musica_atual = 1
+		else:
+			musica_atual = 0
+			
+	stream = musicas[musica_atual]
 
 func _physics_process(_delta):
 	if playing:
@@ -61,35 +80,35 @@ func _physics_process(_delta):
 
 
 func load_chart():
-	# Abre o arquivo JSON contendo o mapeamento das notas da música
-	var file = FileAccess.open(
-		"res://charts/song_chart.json",
-		FileAccess.READ
-	)
+	# Define o caminho do arquivo dinamicamente antes de abrir
+	var chart_path = ""
+	if Global.modo:
+		chart_path = "res://charts/hard/song_chart.json"
+	else:
+		chart_path = "res://charts/easy/song_chart.json"
+
+	var file = FileAccess.open(chart_path, FileAccess.READ)
 
 	if file == null:
-		print("ERRO: não foi possível encontrar o chart.")
+		print("ERRO: não foi possível encontrar o chart no caminho: ", chart_path)
 		return
 
-	# Lê todo o conteúdo do arquivo como texto e o fecha
 	var json_text = file.get_as_text()
 	file.close()
 
-	# Converte o texto JSON em estruturas nativas do GDScript (Arrays/Dictionaries)
 	var loaded_events = JSON.parse_string(json_text)
 
-	# Valida se os dados carregados formam uma lista (Array) válida
 	if loaded_events is Array:
 		detected_events = loaded_events
 		next_event_index = 0
 
 		print("================================")
-		print("CHART CARREGADO!")
+		print("CHART CARREGADO: ", chart_path)
 		print("Eventos carregados: ", detected_events.size())
 		print("================================")
 	else:
-		print("ERRO: o arquivo de chart não contém uma lista válida.")
-
+		print("ERRO: O arquivo JSON não contém uma lista válida (Array).")
+		
 
 func spawn_upcoming_notes():
 	# Se já spawnou todas as notas da lista, encerra a verificação
@@ -123,3 +142,8 @@ func spawn_upcoming_notes():
 
 		# Avança para o próximo evento do chart
 		next_event_index += 1
+
+
+func _on_finished() -> void:
+		Global.fim = true
+		print(Global.fim)

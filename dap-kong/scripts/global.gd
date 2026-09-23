@@ -1,6 +1,7 @@
 extends Node
 
 var modo: bool = false
+var fim: bool = false
 
 var pontos = 0 
 

@@ -1,6 +1,9 @@
 extends Node2D
 
 @onready var label: Label = $Label
+@onready var label_2: Label = $VBoxContainer/Label2
+@onready var v_box_container: VBoxContainer = $VBoxContainer
+@onready var button: Button = $VBoxContainer/Button
 
 # Mapeamento das ações de input registradas na Godot para os tipos de notas do jogo
 const ACTION_TO_NOTE_TYPE := {
@@ -15,6 +18,39 @@ var notes_in_area_menor: Array[Area2D] = []
 
 func _process(delta: float) -> void:
 	label.text = str(Global.pontos) + " Pontos"
+
+	if Global.fim == true:
+		v_box_container.visible = true
+	else:
+		v_box_container.visible = false
+
+	if Global.modo:
+		if Global.pontos > 4000:
+			label_2.text = "Exelete"
+			label_2.label_settings.font_color = Color("36c829")
+		elif Global.pontos <= 4000 and Global.pontos >= 2300: 
+			label_2.text = "Bom"
+			label_2.label_settings.font_color = Color("038dff")
+		else:
+			label_2.text = "Mau"
+			label_2.label_settings.font_color = Color("a30704")
+	else:
+		if Global.pontos > 5500:
+			label_2.text = "Exelete"
+			label_2.label_settings.font_color = Color("36c829")
+		elif Global.pontos <= 5500 and Global.pontos >= 3200: 
+			label_2.text = "Bom"
+			label_2.label_settings.font_color = Color("038dff")
+		else:
+			label_2.text = "Mau"
+			label_2.label_settings.font_color = Color("a30704")
+
+func _on_button_pressed() -> void:
+	Global.fim = false
+	Global.pontos = 0
+	Global.modo = false
+	get_tree().change_scene_to_file("res://cenas/menu.tscn")
+
 
 func _unhandled_input(event: InputEvent) -> void:
 	# Percorre todas as ações mapeadas para verificar se alguma foi pressionada
