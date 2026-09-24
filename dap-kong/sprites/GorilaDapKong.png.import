@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu3fbl8dqxktf"
-path="res://.godot/imported/BotãoDapKong-Vazio.png-6872e655318a9dced78180c8150d7b4a.ctex"
+uid="uid://cji7h0wd6on0m"
+path="res://.godot/imported/GorilaDapKong.png-eb5f486d894488ece741b2176f797797.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagens/BotãoDapKong-Vazio.png"
-dest_files=["res://.godot/imported/BotãoDapKong-Vazio.png-6872e655318a9dced78180c8150d7b4a.ctex"]
+source_file="res://sprites/GorilaDapKong.png"
+dest_files=["res://.godot/imported/GorilaDapKong.png-eb5f486d894488ece741b2176f797797.ctex"]
 
 [params]
 

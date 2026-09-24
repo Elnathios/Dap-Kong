@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu3fbl8dqxktf"
-path="res://.godot/imported/BotãoDapKong-Vazio.png-6872e655318a9dced78180c8150d7b4a.ctex"
+uid="uid://bcm0cbu4da820"
+path="res://.godot/imported/EfeitoDapKong-Acerto.png-bc67be8b14eb56280e1cfae38b08e247.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagens/BotãoDapKong-Vazio.png"
-dest_files=["res://.godot/imported/BotãoDapKong-Vazio.png-6872e655318a9dced78180c8150d7b4a.ctex"]
+source_file="res://sprites/EfeitoDapKong-Acerto.png"
+dest_files=["res://.godot/imported/EfeitoDapKong-Acerto.png-bc67be8b14eb56280e1cfae38b08e247.ctex"]
 
 [params]
 

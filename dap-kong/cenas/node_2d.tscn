@@ -1,13 +1,15 @@
-[gd_scene load_steps=46 format=3 uid="uid://xayrl56wfsmq"]
+[gd_scene format=3 uid="uid://xayrl56wfsmq"]
 
 [ext_resource type="Script" uid="uid://tvrtbf6gvohx" path="res://cenas/audio_stream_player.gd" id="1_1ikvx"]
 [ext_resource type="Script" uid="uid://bhcbfb3uxy7i" path="res://cenas/node_2d.gd" id="1_410y7"]
 [ext_resource type="Texture2D" uid="uid://r8ey4ttywm0m" path="res://imagens/MapaDapKong-chão.png" id="2_fnnok"]
+[ext_resource type="Texture2D" uid="uid://cji7h0wd6on0m" path="res://sprites/GorilaDapKong.png" id="3_rrj4f"]
 [ext_resource type="Texture2D" uid="uid://cu3fbl8dqxktf" path="res://imagens/BotãoDapKong-Vazio.png" id="4_410y7"]
 [ext_resource type="AudioStream" uid="uid://b4cspkpyxghum" path="res://sounds/Reggae_Gorilla.ogg" id="4_dyv38"]
 [ext_resource type="PackedScene" uid="uid://cqr8dynmr8jgr" path="res://cenas/note.tscn" id="4_ovvm4"]
 [ext_resource type="AudioStream" uid="uid://q3f51whmtthw" path="res://sounds/rock_Gorilla.ogg" id="5_fnnok"]
 [ext_resource type="FontFile" uid="uid://cd0e6aljqm7k7" path="res://fonte/Pixels.ttf" id="6_6snwf"]
+[ext_resource type="Texture2D" uid="uid://ci11hmkayogjf" path="res://sprites/MapaDapKong-fundo.png" id="6_8sjri"]
 [ext_resource type="Texture2D" uid="uid://clg3hln1xuf6w" path="res://imagens/EfeitoDapKong-Acerto.png" id="10_agkm1"]
 [ext_resource type="Theme" uid="uid://474swyu0jl0c" path="res://botao/menu.tres" id="10_uhp86"]
 [ext_resource type="Texture2D" uid="uid://debl30gorwrgn" path="res://imagens/EfeitoDapKong-Erro.png" id="11_th6y3"]
@@ -15,6 +17,127 @@
 [ext_resource type="AudioStream" uid="uid://cii0m8eb0bat4" path="res://sounds/efeitos/selecionar.wav" id="13_sl83n"]
 [ext_resource type="AudioStream" uid="uid://drcnykxwvwqx6" path="res://sounds/efeitos/mouse.wav" id="14_nntq6"]
 [ext_resource type="AudioStream" uid="uid://bdynlw4vhxmko" path="res://sounds/efeitos/errou.wav" id="15_nntq6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q6g6y"]
+atlas = ExtResource("6_8sjri")
+region = Rect2(0, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ln4h"]
+atlas = ExtResource("6_8sjri")
+region = Rect2(256, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxbro"]
+atlas = ExtResource("6_8sjri")
+region = Rect2(512, 0, 256, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5w1jr"]
+atlas = ExtResource("6_8sjri")
+region = Rect2(768, 0, 256, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cgc4a"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q6g6y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ln4h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxbro")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5w1jr")
+}],
+"loop": true,
+"name": &"fundo",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cgc4a"]
+atlas = ExtResource("3_rrj4f")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y8524"]
+atlas = ExtResource("3_rrj4f")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7r0jc"]
+atlas = ExtResource("3_rrj4f")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mvpey"]
+atlas = ExtResource("3_rrj4f")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jvnxq"]
+atlas = ExtResource("3_rrj4f")
+region = Rect2(256, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_meovh"]
+atlas = ExtResource("3_rrj4f")
+region = Rect2(320, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2gfb3"]
+atlas = ExtResource("3_rrj4f")
+region = Rect2(384, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fv4dq"]
+atlas = ExtResource("3_rrj4f")
+region = Rect2(448, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kqro1"]
+atlas = ExtResource("3_rrj4f")
+region = Rect2(512, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eatov"]
+atlas = ExtResource("3_rrj4f")
+region = Rect2(576, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pryh0"]
+atlas = ExtResource("3_rrj4f")
+region = Rect2(640, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xk2w5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cgc4a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y8524")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7r0jc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mvpey")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jvnxq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_meovh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2gfb3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fv4dq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kqro1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eatov")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pryh0")
+}],
+"loop": false,
+"name": &"dap",
+"speed": 5.0
+}]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_6snwf"]
 animations = [{
@@ -233,54 +356,67 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" unique_id=1848049783]
 script = ExtResource("1_410y7")
 
-[node name="Conductor" type="AudioStreamPlayer" parent="."]
+[node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="." unique_id=474786189]
+texture_filter = 1
+position = Vector2(593, 328)
+scale = Vector2(5.1, 5.1)
+sprite_frames = SubResource("SpriteFrames_cgc4a")
+animation = &"fundo"
+
+[node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="." unique_id=502764942]
+texture_filter = 1
+position = Vector2(523, 152)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_xk2w5")
+animation = &"dap"
+
+[node name="Conductor" type="AudioStreamPlayer" parent="." unique_id=749704712]
 autoplay = true
 script = ExtResource("1_1ikvx")
 note_scene = ExtResource("4_ovvm4")
 musicas = Array[AudioStream]([ExtResource("4_dyv38"), ExtResource("5_fnnok")])
 
-[node name="MapaDapKong-chão" type="Sprite2D" parent="."]
+[node name="MapaDapKong-chão" type="Sprite2D" parent="." unique_id=1484128157]
 visibility_layer = 2
+texture_filter = 1
 position = Vector2(575, 360.5)
 scale = Vector2(4.49219, 4.49219)
 texture = ExtResource("2_fnnok")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=715398255]
 z_index = 1
 position = Vector2(884, 510)
 scale = Vector2(3.2, 3.2)
 sprite_frames = SubResource("SpriteFrames_6snwf")
 
-[node name="Area2D" type="Area2D" parent="AnimatedSprite2D"]
+[node name="Area2D" type="Area2D" parent="AnimatedSprite2D" unique_id=334342615]
 
-[node name="AreaMaior" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+[node name="AreaMaior" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=1238140707]
 position = Vector2(-4.11374, 0.109955)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_ovvm4")
 
-[node name="AreaMenor" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D"]
+[node name="AreaMenor" type="CollisionShape2D" parent="AnimatedSprite2D/Area2D" unique_id=1624786279]
 position = Vector2(3.8147e-06, 0)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_410y7")
 debug_color = Color(0.326796, 0.489411, 1, 0.42)
 
-[node name="DestructArea" type="Area2D" parent="."]
+[node name="DestructArea" type="Area2D" parent="." unique_id=355531611]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DestructArea" unique_id=287080331]
 position = Vector2(952, 499)
 shape = SubResource("RectangleShape2D_6snwf")
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1854038126]
 offset_left = 947.0
 offset_top = 47.0
 offset_right = 987.0
 offset_bottom = 70.0
 label_settings = SubResource("LabelSettings_lwqk8")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=470041329]
 visible = false
 anchors_preset = 15
 anchor_right = 1.0
@@ -292,33 +428,33 @@ offset_bottom = 282.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label2" type="Label" parent="VBoxContainer"]
+[node name="Label2" type="Label" parent="VBoxContainer" unique_id=1027504241]
 layout_mode = 2
 label_settings = SubResource("LabelSettings_fnnok")
 horizontal_alignment = 1
 
-[node name="HSeparator4" type="HSeparator" parent="VBoxContainer"]
+[node name="HSeparator4" type="HSeparator" parent="VBoxContainer" unique_id=1109497725]
 layout_mode = 2
 theme_override_styles/separator = SubResource("StyleBoxEmpty_uhp86")
 
-[node name="Button" type="Button" parent="VBoxContainer"]
+[node name="Button" type="Button" parent="VBoxContainer" unique_id=1109779839]
 layout_mode = 2
 theme = ExtResource("10_uhp86")
 text = "menu"
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=534015359]
 position = Vector2(883.5, 510.5)
 scale = Vector2(3.21875, 3.21875)
 sprite_frames = SubResource("SpriteFrames_q6g6y")
 
-[node name="perfeito" type="AudioStreamPlayer2D" parent="."]
+[node name="perfeito" type="AudioStreamPlayer2D" parent="." unique_id=1055317499]
 stream = ExtResource("13_sl83n")
 
-[node name="legal" type="AudioStreamPlayer2D" parent="."]
+[node name="legal" type="AudioStreamPlayer2D" parent="." unique_id=559023311]
 stream = ExtResource("14_nntq6")
 volume_db = 3.0
 
-[node name="errou" type="AudioStreamPlayer2D" parent="."]
+[node name="errou" type="AudioStreamPlayer2D" parent="." unique_id=1203441458]
 stream = ExtResource("15_nntq6")
 
 [connection signal="finished" from="Conductor" to="Conductor" method="_on_finished"]

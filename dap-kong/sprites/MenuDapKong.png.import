@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cu3fbl8dqxktf"
-path="res://.godot/imported/BotãoDapKong-Vazio.png-6872e655318a9dced78180c8150d7b4a.ctex"
+uid="uid://boawnvqnn4qln"
+path="res://.godot/imported/MenuDapKong.png-c64236ca76e49e46b0b3953f73c8d18e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://imagens/BotãoDapKong-Vazio.png"
-dest_files=["res://.godot/imported/BotãoDapKong-Vazio.png-6872e655318a9dced78180c8150d7b4a.ctex"]
+source_file="res://sprites/MenuDapKong.png"
+dest_files=["res://.godot/imported/MenuDapKong.png-c64236ca76e49e46b0b3953f73c8d18e.ctex"]
 
 [params]
 
